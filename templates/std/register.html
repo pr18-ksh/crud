@@ -1,0 +1,39 @@
+{% extends 'std/base.html' %}
+{% block start %}
+  <div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Register</h2>
+        <hr>
+        {% if messages %}
+        <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1">Firstname :</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" name="Firstname" aria-describedby="emailHelp" placeholder="Enter firstname">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+               <label for="exampleInputEmail1">Lastname :</label>
+               <input type="text" class="form-control" id="exampleInputEmail1" name="Lastname" aria-describedby="emailHelp" placeholder="Enter lastname">
+               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1">Username :</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1">Password :</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+            </div>
+            <p>Already have an account <a href="/crud/login/">Login</a></p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+{% endblock %}
